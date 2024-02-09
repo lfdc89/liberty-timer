@@ -1,0 +1,18 @@
+<server>
+
+    <dataSource
+            id="h2datasource"
+            jndiName="${env.H2_JNDI_NAME}"
+            type="javax.sql.DataSource">
+        <jdbcDriver
+                javax.sql.ConnectionPoolDataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.DataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.XADataSource="org.h2.jdbcx.JdbcDataSource"
+                libraryRef="h2lib"/>
+        <properties
+                URL="${env.H2_URL}"
+                user="${env.H2_USERNAME}"
+                password="${env.H2_PASSWORD}"/>
+    </dataSource>
+
+</server>

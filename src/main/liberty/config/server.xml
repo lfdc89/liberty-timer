@@ -1,53 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<server description="new server">
+<server description="Liberty server for EJB timer">
 
-    <!-- Enable features -->
     <featureManager>
         <feature>jakartaee-10.0</feature>
         <feature>microProfile-6.1</feature>
     </featureManager>
 
-    <dataSource
-            id="h2datasource"
-            jndiName="jdbc/h2"
-            type="javax.sql.DataSource">
-        <jdbcDriver
-                javax.sql.ConnectionPoolDataSource="org.h2.jdbcx.JdbcDataSource"
-                javax.sql.DataSource="org.h2.jdbcx.JdbcDataSource"
-                javax.sql.XADataSource="org.h2.jdbcx.JdbcDataSource"
-                libraryRef="h2lib"/>
-        <properties
-                URL="jdbc:h2:~/test;AUTO_SERVER=TRUE"
-                user="user"
-                password="password"/>
-    </dataSource>
+    <include location="resources/config/libraries.xml" />
+    <include location="resources/config/logging.xml" optional="true"/>
+    <include location="resources/config/registry.xml" optional="true"/>
+    <include location="resources/config/database.xml" optional="true"/>
 
-    <library id="sl4j">
-        <fileset dir="lib/slf4j" includes="*.jar"/>
-    </library>
+    <basicRegistry id="basic" realm="BasicRealm"/>
 
-    <library id="h2lib">
-        <fileset dir="lib/h2" includes="*.jar"/>
-    </library>
-
-    <logging maxFiles="10"
-             traceSpecification="*=info:it.sogei.architetture.scheduler.*=finest"
-             messageFormat="SIMPLE"
-             messageSource="message,trace,accessLog,ffdc,audit"
-             consoleLogLevel="INFO"/>
-
-    <basicRegistry id="basic" realm="BasicRealm">
-    </basicRegistry>
-
-    <httpEndpoint id="defaultHttpEndpoint"
-                  httpPort="9080"
-                  httpsPort="9443" />
+    <httpEndpoint id="defaultHttpEndpoint" host="${env.SERVER_HOST}" httpPort="${env.SERVER_HTTP_PORT}" httpsPort="${env.SERVER_HTTPS_PORT}" />
 
     <applicationManager autoExpand="true"/>
+
+    <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
 
     <webApplication contextRoot="/liberty-timer" location="liberty-timer.war">
         <classloader commonLibraryRef="sl4j,h2lib"/>
     </webApplication>
 
-    <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
 </server>

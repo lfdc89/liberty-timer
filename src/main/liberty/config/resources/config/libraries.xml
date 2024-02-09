@@ -1,0 +1,11 @@
+<server>
+
+    <library id="sl4j">
+        <fileset dir="lib/slf4j" includes="*.jar"/>
+    </library>
+
+    <library id="h2lib">
+        <fileset dir="lib/h2" includes="*.jar"/>
+    </library>
+
+</server>

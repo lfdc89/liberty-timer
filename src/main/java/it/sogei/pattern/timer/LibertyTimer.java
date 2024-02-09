@@ -181,7 +181,6 @@ public class LibertyTimer {
                 }
                 catch (SQLException err)
                 {
-                    err.printStackTrace();
                     logger.debug("checkOwnerOrIntervalTimer(): ERROR: " + err.getMessage());
                     Thread.sleep(1000L);
                 }
