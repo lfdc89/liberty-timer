@@ -62,7 +62,7 @@ public class LibertyTimer {
     private Integer busyInterval;
 
     @Inject
-    @ConfigProperty(name="timer.waiting.treshold", defaultValue = "2")
+    @ConfigProperty(name="timer.waiting.threshold", defaultValue = "2")
     private Integer waitingThreshold;
 
     @Inject
