@@ -26,4 +26,36 @@ public class SogeiTask {
         logger.info("taskMethod(): end");
 
     }
+
+    /*
+     * esempio che randomicamente ritorna il booleano per il busy
+     * da modificare
+     */
+
+    public boolean isBusy() throws TimerTaskException {
+        return false;
+    	/*
+    	LocalTime orario=LocalTime.now();
+    	int minuto=orario.getMinute();
+    	logger.info("SogeiTask.isBusy(): minuto="+minuto);
+    	if (minuto>10 && minuto <13) {
+    		logger.info("SogeiTask.isBusy(): false");
+			return false;
+    	}
+    	else {
+    		logger.info("SogeiTask.isBusy(): true");
+			return true;
+
+    	}
+    		/*
+    	if (((new Date()).getTime()%2)==0) {
+    		logger.info("SogeiTask.isBusy(): true");
+    		return true;
+    	}
+    	else {
+    		logger.info("SogeiTask.isBusy(): false");
+    		return false;
+    	}
+    	*/
+    }
 }

@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <server description="Liberty server for EJB timer">
 
-    <featureManager>
-        <feature>jdbc-4.3</feature>
-        <feature>enterpriseBeans-4.0</feature>
-        <feature>cdi-4.0</feature>
-        <feature>mpConfig-3.1</feature>
-        <feature>batch-2.1</feature>
-    </featureManager>
-
+    <include location="resources/config/baseFeatures.xml" />
     <include location="resources/config/libraries.xml" />
-    <include location="resources/config/logging.xml" optional="true"/>
-    <include location="resources/config/registry.xml" optional="true"/>
-    <include location="resources/config/database.xml" optional="true"/>
+    <include location="resources/config/logging.xml"   optional="true"/>
+    <include location="resources/config/scheduler.xml" optional="true"/>
 
     <basicRegistry id="basic" realm="BasicRealm"/>
 

@@ -38,35 +38,35 @@ public class LibertyTimer {
     @Resource
     private TimerService timerService;
 
-    @Resource(name="jdbc/h2")
+    @Resource(name="jdbc/ds.scheduler")
     DataSource ds;
 
     @Inject
-    @ConfigProperty(name="timer.table.name")
+    @ConfigProperty(name="TIMER_IDTIMER_TABLE")
     private String tableName;
 
     @Inject
-    @ConfigProperty(name="timer.db.schema")
+    @ConfigProperty(name="TIMER_IDTIMER_DB_SCHEMA")
     private String dbSchema;
 
     @Inject
-    @ConfigProperty(name="timer.name")
+    @ConfigProperty(name="TIMER_IDTIMER_NAME")
     private String timerName;
 
     @Inject
-    @ConfigProperty(name="timer.base.interval", defaultValue = "60")
+    @ConfigProperty(name="TIMER_IDTIMER_BASE_INTERVAL", defaultValue = "60")
     private Integer baseInterval;
 
     @Inject
-    @ConfigProperty(name="timer.busy.interval", defaultValue = "10")
+    @ConfigProperty(name="TIMER_IDTIMER_BUSY_INTERVAL", defaultValue = "10")
     private Integer busyInterval;
 
     @Inject
-    @ConfigProperty(name="timer.waiting.threshold", defaultValue = "2")
+    @ConfigProperty(name="TIMER_IDTIMER_WAITING_THRESHOLD", defaultValue = "2")
     private Integer waitingThreshold;
 
     @Inject
-    @ConfigProperty(name="timer.max.ownership", defaultValue = "1800")
+    @ConfigProperty(name="TIMER_IDTIMER_MAX_OWNERSHIP", defaultValue = "1800")
     private Integer maxOwnership;
 
     @EJB

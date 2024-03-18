@@ -1,7 +1,7 @@
 <server>
 
     <logging maxFiles="10"
-             traceSpecification="*=info:it.sogei.architetture.scheduler.*=finest"
+             traceSpecification="*=info:it.sogei.pattern.scheduler.*=finest"
              messageFormat="SIMPLE"
              messageSource="message,trace,accessLog,ffdc,audit"
              consoleLogLevel="INFO"/>

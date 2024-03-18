@@ -1,0 +1,9 @@
+<server>
+    <featureManager>
+        <feature>jdbc-4.3</feature>
+        <feature>enterpriseBeansPersistentTimer-4.0</feature>
+        <feature>cdi-4.0</feature>
+        <feature>mpConfig-3.1</feature>
+        <feature>batch-2.1</feature>
+    </featureManager>
+</server>

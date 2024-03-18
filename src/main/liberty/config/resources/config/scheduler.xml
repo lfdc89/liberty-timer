@@ -1,0 +1,28 @@
+<server>
+    <dataSource
+            id="ds.scheduler"
+            jndiName="${env.ORA_IDSCHED_DS_NAME}"
+            type="javax.sql.DataSource"
+            transactional="false">
+        <jdbcDriver
+                javax.sql.ConnectionPoolDataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.DataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.XADataSource="org.h2.jdbcx.JdbcDataSource"
+                libraryRef="h2lib"/>
+        <properties
+                URL="${env.ORA_IDSCHED_CONN_URL}"
+                user="${env.ORA_IDSCHED_CONN_USER}"
+                password="${env.ORA_IDSCHED_CONN_PSW}"/>
+
+        <connectionManager maxPoolSize="10" minPoolSize="0" connectionTimeout="5s" />
+    </dataSource>
+
+    <databaseStore id="oracle.database.sched.store"
+                   schema="${env.ORA_IDSCHED_CONN_USER}"
+                   tablePrefix="${env.SCHED_PREFIX}"
+                   dataSourceRef="ds.scheduler"
+                   createTables="true"/>
+
+    <persistentExecutor id="defaultEJBPersistentTimerExecutor"  taskStoreRef="oracle.database.sched.store"/>
+
+</server>
